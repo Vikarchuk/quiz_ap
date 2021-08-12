@@ -14,4 +14,54 @@
             <p><strong>Content:</strong>
         </div>
     </div>
+    <div>
+        <table class="table table-hover">
+            <tbody><tr>
+                <th>ID</th>
+                <th>Text</th>
+                <th>Action</th>
+            </tr>
+            @foreach ($questions as $question)
+                <tr>
+                    <td>{{ $question->id }}</td>
+                    <td>{{ $question->text }}</td>
+                    <td>
+                        <form action="{{ route('admin.tests.destroy', $test->id) }}" method="POST">
+                            <a href="{{ route('admin.tests.show', $test->id) }}" title="show">
+                                <i class="fas fa-eye text-success  fa-lg"></i>
+                            </a>
+                            <a href="{{ route('admin.tests.edit', $test->id) }}">
+                                <i class="fas fa-edit  fa-lg"></i>
+                            </a>
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                                <i class="fas fa-trash fa-lg text-danger"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody></table>
+        <form action="{{ route('admin.questions.store') }}" method="POST" >
+            @csrf
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <input type="hidden" name="test_id" value="{{$test->id}}">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Question:</strong>
+                        <input type="text" name="text" class="form-control" placeholder="text">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
 @stop

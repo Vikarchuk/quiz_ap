@@ -10,6 +10,10 @@ class Test extends Model
     use HasFactory;
     protected $table = 'tests';
 
+    public function questions() {
+        return $this->hasMany(Question::class);
+    }
+
     protected $fillable = [
         'title',
         'performance_time',

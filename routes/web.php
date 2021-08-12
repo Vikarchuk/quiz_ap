@@ -25,4 +25,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::name('admin.')->prefix('admin')->group(function () {
     Route::resource('tests', 'App\Http\Controllers\Admin\TestController');
     Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
+    Route::resource('questions', 'App\Http\Controllers\Admin\QuestionController');
 });
