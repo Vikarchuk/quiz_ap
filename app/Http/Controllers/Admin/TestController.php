@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Test;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -26,7 +27,8 @@ class TestController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.tests.create', compact('categories'));
     }
 
     /**
@@ -37,7 +39,10 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        Test::create($data);
+        return redirect()->route('admin.tests.index')
+            ->with('success', 'Product created successfully.');
     }
 
     /**
@@ -58,7 +63,8 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {
-        //
+        $categories = Category::all();
+        return view('admin.tests.edit', compact('test', 'categories'));
     }
 
     /**
@@ -70,7 +76,9 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        //
+        $test->update($request->all());
+        return redirect()->route('admin.tests.index')
+            ->with('success', 'Category updated successfully');
     }
 
     /**
@@ -82,7 +90,6 @@ class TestController extends Controller
     public function destroy(Test $test)
     {
         $test->delete();
-
         return redirect(route('admin.tests.index'));
     }
 }

@@ -9,4 +9,9 @@ class Test extends Model
 {
     use HasFactory;
     protected $table = 'tests';
+
+    protected $fillable = [
+        'title',
+        'performance_time',
+        'category_id'];
 }
