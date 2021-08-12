@@ -19,4 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/admin', [App\Http\Controllers\Admin\AdminController::class, 'index']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::name('admin.')->prefix('admin')->group(function () {
+    Route::resource('tests', 'App\Http\Controllers\Admin\TestController');
+    Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController');
+});
