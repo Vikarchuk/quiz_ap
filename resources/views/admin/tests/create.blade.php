@@ -16,8 +16,7 @@
             </div>
         </div>
     </div>
-{{--    @include('admin.layouts.errorsChecking')--}}
-
+    @include('admin.parts.errorsChecking')
     <form action="{{ route('admin.tests.store') }}" method="POST" enctype="multipart/form-data">
         @include('admin.parts.form')
     </form>

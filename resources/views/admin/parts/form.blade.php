@@ -22,25 +22,25 @@
             </select>
         </div>
     </div>
-{{--    <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--        <div class="form-group">--}}
-{{--            <strong>Test photos (can attach more than one):</strong>--}}
-{{--            <input name="images[]" type="file" multiple="multiple">--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="col-xs-12 col-sm-12 col-md-12">--}}
-{{--        @isset($test->images)--}}
-{{--            <strong>Delete image:</strong>--}}
-{{--            <div class="form-group form-check">--}}
-{{--                @foreach($test->images as $image)--}}
-{{--                    <label class="form-check-label" for="remove">--}}
-{{--                        <input type="checkbox" class="form-check-input"  name="remove[]" value="{{$image->id}}">--}}
-{{--                        <img src="{{ '/storage/images/Test/'.$image->imageable_id.'/original/'.$image->body }}" alt="" class="img-fluid">--}}
-{{--                    </label>--}}
-{{--                @endforeach--}}
-{{--            </div>--}}
-{{--        @endisset--}}
-{{--    </div>--}}
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Test photos (can attach more than one):</strong>
+            <input name="images[]" type="file" multiple="multiple">
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        @isset($test->images)
+            <strong>Delete image:</strong>
+            <div class="form-group form-check">
+                @foreach($test->images as $image)
+                    <label class="form-check-label" for="remove">
+                        <input type="checkbox" class="form-check-input"  name="remove[]" value="{{$image->id}}">
+                        <img src="{{ '/storage/images/Test/'.$image->imageable_id.'/original/'.$image->body }}" alt="" class="img-fluid">
+                    </label>
+                @endforeach
+            </div>
+        @endisset
+    </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Save</button>

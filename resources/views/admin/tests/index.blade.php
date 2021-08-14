@@ -11,6 +11,16 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <table class="table table-hover">
                     <tbody><tr>
                         <th>ID</th>

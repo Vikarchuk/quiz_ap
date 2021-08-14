@@ -13,4 +13,7 @@ class Question extends Model
         'text',
         'test_id'
         ];
+    public function test() {
+        return $this->belongsTo(Test::class);
+    }
 }

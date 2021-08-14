@@ -37,10 +37,8 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-//        dd($data['test_id']);
         $id = $data['test_id'];
         Question::create($data);
-//        return redirect()->route("admin.tests.$id");
         return redirect()->back();
     }
 
@@ -86,6 +84,7 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        $question->delete();
+        return redirect()->back();
     }
 }

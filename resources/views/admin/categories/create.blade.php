@@ -15,16 +15,7 @@
             </div>
         </div>
     </div>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    @include('admin.parts.errorsChecking')
     <form action="{{ route('admin.categories.store') }}" method="POST" >
         @csrf
         <div class="row">

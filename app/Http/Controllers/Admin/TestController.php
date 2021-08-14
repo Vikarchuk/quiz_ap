@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTestRequest;
 use App\Models\Test;
 use App\Models\Category;
 use App\Models\Question;
@@ -38,8 +39,9 @@ class TestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTestRequest $request)
     {
+        $request->validated();
         $data = $request->all();
         Test::create($data);
         return redirect()->route('admin.tests.index')
@@ -54,9 +56,9 @@ class TestController extends Controller
      */
     public function show(Test $test)
     {
-        $questions = $test->questions();
+//        $questions = $test->questions();
 //        dd($questions);
-        return view('admin.tests.show', compact('test', 'questions'));
+        return view('admin.tests.show', compact('test'));
     }
     /**
      * Show the form for editing the specified resource.

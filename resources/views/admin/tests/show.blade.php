@@ -11,7 +11,6 @@
             <p><strong>ID:</strong> {{ $test->id }}</p>
             <p><strong>Name:</strong> {{ $test->title }}</p>
             <p><strong>Category:</strong> {{ $test->category_id }}</p>
-            <p><strong>Content:</strong>
         </div>
     </div>
     <div>
@@ -21,16 +20,16 @@
                 <th>Text</th>
                 <th>Action</th>
             </tr>
-            @foreach ($questions as $question)
+            @foreach ($test->questions as $question)
                 <tr>
                     <td>{{ $question->id }}</td>
                     <td>{{ $question->text }}</td>
                     <td>
-                        <form action="{{ route('admin.tests.destroy', $test->id) }}" method="POST">
-                            <a href="{{ route('admin.tests.show', $test->id) }}" title="show">
-                                <i class="fas fa-eye text-success  fa-lg"></i>
-                            </a>
-                            <a href="{{ route('admin.tests.edit', $test->id) }}">
+                        <form action="{{ route('admin.questions.destroy', $question->id) }}" method="POST">
+{{--                            <a href="{{ route('admin.questions.show', $question->id) }}" title="show">--}}
+{{--                                <i class="fas fa-eye text-success  fa-lg"></i>--}}
+{{--                            </a>--}}
+                            <a href="{{ route('admin.questions.edit', $question->id) }}">
                                 <i class="fas fa-edit  fa-lg"></i>
                             </a>
                             @csrf
@@ -55,6 +54,12 @@
                     <div class="form-group">
                         <strong>Question:</strong>
                         <input type="text" name="text" class="form-control" placeholder="text">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Answer:</strong>
+                        <input type="text" name="answer" class="form-control" placeholder="answer">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
