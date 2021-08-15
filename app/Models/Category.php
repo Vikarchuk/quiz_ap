@@ -11,4 +11,8 @@ class Category extends Model
     protected $table = 'categories';
     protected $fillable = ['title'];
     public $timestamps = false;
+
+    public function tests() {
+        return $this->hasMany(Test::class);
+    }
 }

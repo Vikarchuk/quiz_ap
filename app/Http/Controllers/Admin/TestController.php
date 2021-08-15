@@ -56,8 +56,6 @@ class TestController extends Controller
      */
     public function show(Test $test)
     {
-//        $questions = $test->questions();
-//        dd($questions);
         return view('admin.tests.show', compact('test'));
     }
     /**

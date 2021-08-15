@@ -23,5 +23,19 @@
             </div>
         </div>
     </div>
+    <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+            <tbody><tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+            @foreach ($category->tests as $category)
+                <tr>
+                    <td>{{ $category->id }}</td>
+                    <td>{{ $category->title }}</td>
+                </tr>
+            @endforeach
+            </tbody></table>
+    </div>
 
 @endsection

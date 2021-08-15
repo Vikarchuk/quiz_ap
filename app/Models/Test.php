@@ -13,7 +13,12 @@ class Test extends Model
     public function questions() {
         return $this->hasMany(Question::class);
     }
-
+    public function image() {
+        return $this->morphOne(Image::class, 'imageable');
+    }
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
     protected $fillable = [
         'title',
         'performance_time',

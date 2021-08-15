@@ -1,11 +1,13 @@
 @extends('layouts.admin_lte')
 
 @section('header_admin')
-    <h1>Create test</h1>
+    <h3>Create test</h3>
 @endsection
 
 @section('content_admin')
-
+    <div id="app">
+        <example-component></example-component>
+    </div>
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
