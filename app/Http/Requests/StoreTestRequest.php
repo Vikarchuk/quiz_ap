@@ -24,7 +24,7 @@ class StoreTestRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string', 'unique'],
+            'title' => ['required', 'string'],
             'performance_time' => ['required', 'integer']
         ];
     }

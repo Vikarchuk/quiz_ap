@@ -12,6 +12,13 @@
             <p><strong>Name:</strong> {{ $test->title }}</p>
             <p><strong>Category:</strong> {{ $test->category_id }}</p>
         </div>
+        <div>
+            @isset($test->image)
+                <img src="{{ asset('/storage/images/Test/'.$test->image->imageable_id.'/original/'.$test->image->body) }}" alt="" class="img-fluid">
+            @else
+                <p>No description</p>
+            @endisset
+        </div>
     </div>
     <div>
         <table class="table table-hover">

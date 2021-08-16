@@ -25,19 +25,17 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Test photos (can attach more than one):</strong>
-            <input name="images[]" type="file" multiple="multiple">
+            <input name="image" type="file" multiple="multiple">
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        @isset($test->images)
-            <strong>Delete image:</strong>
+        @isset($test->image)
             <div class="form-group form-check">
-                @foreach($test->images as $image)
-                    <label class="form-check-label" for="remove">
-                        <input type="checkbox" class="form-check-input"  name="remove[]" value="{{$image->id}}">
-                        <img src="{{ '/storage/images/Test/'.$image->imageable_id.'/original/'.$image->body }}" alt="" class="img-fluid">
-                    </label>
-                @endforeach
+                <label class="form-check-label" for="remove">
+                    <strong>Delete image</strong><br>
+                    <input type="checkbox" class="form-check-input"  name="remove" value="{{$test->image->id}}">
+                    <img src="{{ asset('/storage/images/Test/'.$test->id.'/thumb/'.$test->image->body) }}" alt="" class="img-fluid">
+                </label>
             </div>
         @endisset
     </div>

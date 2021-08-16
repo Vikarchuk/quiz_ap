@@ -6,11 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTestRequest;
 use App\Models\Test;
 use App\Models\Category;
-use App\Models\Question;
+use App\Http\Traits\ImageTrait;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
+    use ImageTrait;
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +44,8 @@ class TestController extends Controller
     {
         $request->validated();
         $data = $request->all();
-        Test::create($data);
+        $model = Test::create($data);
+        $this->uploadOne($request, null, $model);
         return redirect()->route('admin.tests.index')
             ->with('success', 'Product created successfully.');
     }
@@ -79,7 +81,13 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        $test->update($request->all());
+        $model = $test->update($request->all());
+        if(!($test->image)){
+            $idImage= null;
+        } else{
+            $idImage=$test->image->id;
+        }
+        $this->uploadOne($request, $idImage, $model);
         return redirect()->route('admin.tests.index')
             ->with('success', 'Category updated successfully');
     }

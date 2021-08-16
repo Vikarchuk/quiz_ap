@@ -10,6 +10,9 @@ class Test extends Model
     use HasFactory;
     protected $table = 'tests';
 
+    public $width = 50;
+    public $height = 60;
+
     public function questions() {
         return $this->hasMany(Question::class);
     }
