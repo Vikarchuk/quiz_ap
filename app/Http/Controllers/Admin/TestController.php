@@ -47,7 +47,7 @@ class TestController extends Controller
         $model = Test::create($data);
         $this->uploadOne($request, null, $model);
         return redirect()->route('admin.tests.index')
-            ->with('success', 'Product created successfully.');
+            ->with('success', 'Test created successfully.');
     }
 
     /**
@@ -89,7 +89,7 @@ class TestController extends Controller
         }
         $this->uploadOne($request, $idImage, $model);
         return redirect()->route('admin.tests.index')
-            ->with('success', 'Category updated successfully');
+            ->with('success', 'Test updated successfully');
     }
 
     /**
