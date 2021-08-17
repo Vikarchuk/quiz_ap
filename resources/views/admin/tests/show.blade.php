@@ -33,9 +33,6 @@
                     <td>{{ $question->text }}</td>
                     <td>
                         <form action="{{ route('admin.questions.destroy', $question->id) }}" method="POST">
-{{--                            <a href="{{ route('admin.questions.show', $question->id) }}" title="show">--}}
-{{--                                <i class="fas fa-eye text-success  fa-lg"></i>--}}
-{{--                            </a>--}}
                             <a href="{{ route('admin.questions.edit', $question->id) }}">
                                 <i class="fas fa-edit  fa-lg"></i>
                             </a>
@@ -70,10 +67,12 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">Add answer</button>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>
-
         </form>
     </div>
 @stop
